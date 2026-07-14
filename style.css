@@ -1,0 +1,546 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+
+    background:#02030a;
+
+    color:white;
+
+    font-family:Arial, sans-serif;
+
+}
+
+
+
+#stars{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+}
+
+
+
+/* =====================
+SCENE SYSTEM
+===================== */
+
+
+.scene{
+
+    position:absolute;
+
+    inset:0;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    opacity:0;
+
+    visibility:hidden;
+
+
+    transition:1s;
+
+}
+
+
+
+.scene.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+
+
+
+/* =====================
+LOADING
+===================== */
+
+
+#loading{
+
+    background:
+
+    radial-gradient(
+    circle,
+    #123,
+    #02030a
+    );
+
+}
+
+
+
+#loading h1{
+
+    font-size:70px;
+
+    letter-spacing:15px;
+
+    color:#00eaff;
+
+    text-shadow:
+
+    0 0 20px cyan;
+
+}
+
+
+
+.loading{
+
+    width:300px;
+
+    height:10px;
+
+    margin-top:40px;
+
+    background:#333;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+#progress{
+
+    height:100%;
+
+    width:0%;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    cyan,
+    blue
+    );
+
+}
+
+
+
+
+
+/* =====================
+METEOR
+===================== */
+
+
+#meteorScene{
+
+    background:
+
+    radial-gradient(
+    circle,
+    #14245a,
+    #02030a
+    );
+
+}
+
+
+
+#meteorScene h1{
+
+    font-size:35px;
+
+    text-align:center;
+
+}
+
+
+
+.meteor{
+
+    position:absolute;
+
+
+    width:220px;
+
+    height:4px;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    transparent,
+    white
+    );
+
+
+    top:-100px;
+
+    right:-100px;
+
+
+    transform:rotate(-45deg);
+
+
+    animation:
+
+    meteorMove 3s infinite;
+
+
+}
+
+
+
+.meteor:after{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+
+    width:25px;
+
+    height:25px;
+
+
+    border-radius:50%;
+
+
+    background:white;
+
+
+    box-shadow:
+
+    0 0 30px cyan;
+
+
+}
+
+
+
+.second{
+
+    animation-delay:1.5s;
+
+}
+
+
+
+
+@keyframes meteorMove{
+
+    0%{
+
+        transform:
+        translate(0,0)
+        rotate(-45deg);
+
+        opacity:0;
+
+    }
+
+
+    20%{
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        transform:
+        translate(-700px,700px)
+        rotate(-45deg);
+
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+
+/* =====================
+CAKE
+===================== */
+
+
+#cakeScene{
+
+    background:
+
+    radial-gradient(
+    circle,
+    #35105c,
+    #02030a
+    );
+
+    text-align:center;
+
+}
+
+
+
+.cake{
+
+    font-size:130px;
+
+
+    animation:
+
+    cakeShow 1.5s;
+
+}
+
+
+
+#flame{
+
+    font-size:45px;
+
+    animation:
+
+    fire .5s infinite alternate;
+
+}
+
+
+
+@keyframes fire{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+
+
+@keyframes cakeShow{
+
+    from{
+
+        transform:
+        translateY(200px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:
+        translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+#cakeScene h1{
+
+    margin-top:20px;
+
+    letter-spacing:5px;
+
+}
+
+
+
+#cakeScene h2{
+
+    font-size:45px;
+
+    color:#00eaff;
+
+}
+
+
+
+#message{
+
+    width:80%;
+
+    max-width:500px;
+
+    margin-top:25px;
+
+
+    line-height:30px;
+
+    font-size:18px;
+
+}
+
+
+
+#blow{
+
+    margin-top:25px;
+
+
+    padding:15px 40px;
+
+
+    border:0;
+
+    border-radius:50px;
+
+
+    background:#00aaff;
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+/* =====================
+ENDING
+===================== */
+
+
+#ending{
+
+    background:
+
+    radial-gradient(
+    circle,
+    #17245a,
+    black
+    );
+
+}
+
+
+
+#ending h1{
+
+    font-size:55px;
+
+    text-shadow:
+
+    0 0 30px cyan;
+
+
+}
+
+
+
+.fireworks{
+
+    font-size:70px;
+
+    animation:
+
+    pop 1s infinite;
+
+}
+
+
+
+@keyframes pop{
+
+    50%{
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+#loading h1{
+
+    font-size:40px;
+
+}
+
+
+
+#meteorScene h1{
+
+    font-size:25px;
+
+}
+
+
+
+.cake{
+
+    font-size:90px;
+
+}
+
+
+
+#cakeScene h2{
+
+    font-size:35px;
+
+}
+
+
+
+#ending h1{
+
+    font-size:35px;
+
+}
+
+
+}
